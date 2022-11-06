@@ -1,0 +1,18 @@
+{% extends 'learning_app/base.html' %}
+
+{% block page_header %}
+    <h1>topics</h1>
+{% endblock page_header %}
+{% block content %}
+<p>topics</p>
+    <ul>
+    {% for topic in topics %}
+        <li><h3>
+            <a href="{% url 'learning_app:topic' topic.id%}">{{ topic }}</a>
+        </h3></li>
+    {% empty %}
+        <li><h3>no topics have been added yet.</h3></li>
+    {% endfor %}
+    </ul>
+    <h3><a href="{% url 'learning_app:new_topic' %}">add a new topic</a></h3>
+{% endblock content %}
